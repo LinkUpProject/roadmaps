@@ -1,0 +1,16 @@
+---
+// 尾部组件
+import JoinCommunity from "./joinCommunity/JoinCommunity.astro";
+import GithubCard from "./githubCard/GithubCard";
+---
+
+<footer>
+  <div class="mx-auto py-20 px-20 bg-white dark:bg-bg-dark border-t border-gray-200">
+    <div class="flex flex-col justify-center items-center">
+      <JoinCommunity />
+      <div class="mt-10">
+        <GithubCard client:visible />
+      </div>
+    </div>
+  </div>
+</footer>

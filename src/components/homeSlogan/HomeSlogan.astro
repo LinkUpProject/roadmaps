@@ -1,0 +1,20 @@
+---
+// 首页Slogan组件
+import homeSlogan from "../../data/homeSlogan";
+---
+
+<div class="py-20 px-20 bg-white dark:bg-[#222222]">
+  <div class="flex flex-col justify-center items-center">
+    <span class="text-3xl md:text-5xl font-bold text-sun dark:text-dark-pink"
+      >{homeSlogan.title}</span
+    >
+    <span
+      class="mt-2.5 sm:mt-8 text-gray-600 dark:text-dark-white text-sm sm:text-lg leading-relaxed text-center"
+      >{homeSlogan.description1}</span
+    >
+    <span
+      class="my-2.5 text-gray-600 dark:text-dark-white text-sm sm:text-lg leading-relaxed text-center"
+      >{homeSlogan.description2}</span
+    >
+  </div>
+</div>

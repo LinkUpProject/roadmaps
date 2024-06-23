@@ -1,0 +1,46 @@
+---
+// 基础框架
+import Header from "../components/header/Header.astro";
+import Footer from "../components/footer/Footer.astro";
+// 站点信息
+import siteInfo from "../config/siteInfo";
+// 知识点分类
+import { keywords } from "../data/knowledgeClassify";
+// 全局样式
+import "../styles/global.css";
+// 搜索框组件
+import SearchToTop from "../components/search/SearchToTop";
+
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  // 站点信息
+  title = siteInfo.title,
+  description = siteInfo.description,
+  //知识点分类
+} = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="Content-Language" content="en" />
+  </head>
+  <body class="flex min-h-screen flex-col">
+    <Header />
+    <slot />
+    <Footer />
+    <SearchToTop client:load />
+  </body>
+</html>

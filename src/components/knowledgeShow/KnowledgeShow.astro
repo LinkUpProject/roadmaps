@@ -1,0 +1,31 @@
+---
+import { knowledgeClassify } from "../../data/knowledgeClassify";
+---
+
+<div class="w-screen h-fit px-10 md:px-20 lg:px-64 bg-gray-100">
+  <div class="flex flex-col">
+    {
+      knowledgeClassify.map((category) => (
+        <div class="relative border-b border-b-gray-200 py-10 sm:py-14">
+          <div class="container">
+            <h2 class="text-md font-regular absolute -top-[17px] flex rounded-lg border border-gray-100 bg-white px-3 py-1 text-black sm:left-1/2 sm:-translate-x-1/2">
+              {category.title}
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
+              {category.items.map((item) => (
+                <a
+                  href=""
+                  class="group border border-gray-100 bg-white px-2.5 sm:px-3.5 py-5 block no-underline rounded-lg relative text-black text-md hover:border-sun overflow-hidden transition-all duration-300 ease-in-out"
+                >
+                  <span class="relative z-20 text-black group-hover:text-sun transition-all duration-300 ease-in-out">
+                    {item}
+                  </span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>

@@ -1,0 +1,23 @@
+---
+// 加入我们社区组件
+import siteInfo from "../../../config/siteInfo";
+import joinCommunity from "../../../data/joinCommunity";
+---
+
+<div class="max-w-[1000px]">
+  <div class="flex flex-col justify-center items-center">
+    <span class="text-3xl text-black dark:text-dark-pink md:text-5xl font-bold"
+      >{joinCommunity.title}</span
+    >
+    <span
+      class="mt-2.5 sm:mt-8 text-gray-600 dark:text-dark-white text-sm sm:text-lg leading-relaxed text-center"
+      >{joinCommunity.description1}</span
+    >
+    <span
+      class="my-2.5 text-gray-600 dark:text-dark-white text-sm sm:text-lg leading-relaxed text-center"
+      ><a href={siteInfo.github} class="underline font-bold"
+        >{joinCommunity.joinCommunity}</a
+      >{joinCommunity.description2}</span
+    >
+  </div>
+</div>
