@@ -1,6 +1,7 @@
 {
   /*Header 组件 */
 }
+
 {
   /*导入 React */
 }
@@ -21,7 +22,7 @@ import Logo from "../logo/Logo";
 import SearchInput from "../search/SearchButton";
 import MenuMobile from "../menu/menuMobile/MenuMobile";
 import MenuDesktop from "../menu/menuDesktop/MenuDesktop";
-import ThemeToggle from "../themeToggle/ThemeToggle";
+// 暂未完成颜色适配：import ThemeToggle from "../themeToggle/ThemeToggle";
 {
   /*导入 全局状态管理 */
 }
@@ -65,7 +66,7 @@ const HeaderComponent: React.FC<HeaderComponentProps> = ({
       <MenuDesktop justify="center" />
       {/*搜索框 */}
       <SearchInput justify="end" />
-      <ThemeToggle  />
+      {/* <ThemeToggle  /> */}
       {/*手机模式的菜单栏 */}
       <MenuMobile />
     </Navbar>

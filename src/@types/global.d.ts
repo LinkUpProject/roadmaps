@@ -29,3 +29,10 @@ interface Post {
     title: string;
   };
 }
+// 404页面Link
+interface NotFoundLink {
+  name: string;
+  href: string;
+  description: string;
+  icon: any;
+}

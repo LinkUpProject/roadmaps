@@ -1,5 +1,7 @@
+// 加入我们组件数据
+
 const joinCommunity: JoinCommunity = {
-  title: "加入到我们！",
+  title: "加入到我们",
   description1:
     "您是否有过想学习一个知识，却无从下手的困惑？如果你恰好有丰富的学识且热爱知识贡献",
   joinCommunity: "欢迎加入我们社区",

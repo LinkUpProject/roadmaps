@@ -1,130 +1,176 @@
 {
-  /*内容搜索组件*/
+  /*搜索框组件 */
 }
 
 {
-  /*导入React */
+  /*导入第三方库 */
 }
-import { useMemo, useCallback } from "react";
-{
-  /*导入 第三方库 */
-}
-import { Link, Input } from "@nextui-org/react";
+import classNames from "classnames";
+import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
+import {
+  Combobox,
+  ComboboxInput,
+  ComboboxOption,
+  ComboboxOptions,
+  Dialog,
+  DialogPanel,
+  DialogBackdrop,
+} from "@headlessui/react";
+
+import {
+  ExclamationTriangleIcon,
+  FolderIcon,
+  LifebuoyIcon,
+} from "@heroicons/react/24/outline";
 {
   /*导入 全局状态 管理 */
 }
 import { useSnapshot } from "valtio";
 import { isSearchStore } from "../../store/isSearch";
-{
-  /*导入 组件 */
-}
-import { SearchIcon } from "./SearchIcon";
-import Notification from "../notification/Notification";
 
-const Search: React.FC = () => {
+export default function Search() {
   const { allContext, isSearch, searchText, setIsSearch } =
     useSnapshot(isSearchStore);
-
   {
     /*匹配出的数据 */
   }
-  const filteredData = useMemo(() => {
+  const filteredData = (): Post[] => {
     if (searchText) {
-      return allContext.filter((post: Post) =>
+      return (allContext as Post[]).filter((post: Post) =>
         post.data.title.toLowerCase().includes(searchText.toLowerCase())
       );
     }
-    return allContext;
-  }, [searchText, allContext]);
-
-  {
-    /*转跳弹窗 */
-  }
-  const handleLinkClick = useCallback((describe: string, title: string) => {
-    Notification({ describe, title });
-    isSearchStore.setIsSearch();
-  }, []);
-
-  const containerClass = useMemo(
-    () =>
-      isSearch
-        ? "fixed inset-0 flex justify-center w-screen h-screen pt-24 pb-10 bg-white/60 backdrop-blur-sm text-xl z-50"
-        : "",
-    [isSearch]
-  );
-
-  const stopPropagation = useCallback(
-    (e: React.MouseEvent) => e.stopPropagation(),
-    []
-  );
-
-  const handleButtonClick = useCallback(() => setIsSearch(), []);
-
-  const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    isSearchStore.searchText = e.target.value;
-  }, []);
+    return allContext as Post[];
+  };
 
   return (
-    <div className={`${containerClass}`} onClick={stopPropagation}>
-      <div className="flex flex-col max-w-[800px] sm:min-w-[600px] mx-4 sm:mx-0 py-4 px-6 bg-white rounded-2xl shadow-xl">
-        <div className="flex justify-between border-b border-gray-50">
-          <div className="pl-2 text-xl font-bold text-pink-500">搜索</div>
-          <button
-            className="mb-1 p-2.5 rounded-xl text-black hover:bg-pink-500 hover:border-pink-500 hover:text-white transition-all duration-500 ease-in-out transform-gpu"
-            onClick={handleButtonClick}
+    <div className="fixed inset-0 flex justify-center w-screen h-screen pt-24 pb-10 bg-white/60 backdrop-blur-sm">
+      <Dialog
+        className="relative z-50"
+        open={isSearch}
+        onClose={() => {
+          setIsSearch();
+          isSearchStore.searchText = "";
+        }}
+      >
+        <DialogBackdrop
+          transition
+          className="fixed inset-0 bg-gray-500 bg-opacity-25 transition-opacity data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in"
+        />
+
+        <div className="fixed inset-0 z-10 w-screen overflow-y-auto p-4 sm:p-6 md:p-20">
+          <DialogPanel
+            transition
+            className="mx-auto max-w-xl transform divide-y divide-gray-100 overflow-hidden rounded-xl bg-white shadow-2xl ring-1 ring-black ring-opacity-5 transition-all data-[closed]:scale-95 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-4 w-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+            <Combobox
+              onChange={(item: Post) => {
+                if (item) {
+                  window.location.href = `/blog/${item.slug}/`;
+                }
+              }}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </button>
+              <div className="relative">
+                <MagnifyingGlassIcon className="pointer-events-none absolute left-4 top-3.5 h-5 w-5 text-gray-400" />
+                <ComboboxInput
+                  autoFocus
+                  className="h-12 w-full border-0 bg-transparent pl-11 pr-4 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm outline-none border-none"
+                  placeholder="让我们搜索一些内容吧..."
+                  onChange={(event) =>
+                    (isSearchStore.searchText = event.target.value)
+                  }
+                  onBlur={() => (isSearchStore.searchText = "")}
+                />
+              </div>
+              {filteredData().length > 0 && (
+                <ComboboxOptions
+                  static
+                  as="ul"
+                  className="max-h-80 transform-gpu scroll-py-10 scroll-pb-2 space-y-4 overflow-y-auto p-4 pb-2"
+                >
+                  <li>
+                    <ul className="-mx-4 text-sm text-gray-700">
+                      {filteredData().map((item: Post) => (
+                        <ComboboxOption
+                          as="li"
+                          key={item.id}
+                          value={item}
+                          className={({ focus }) =>
+                            classNames(
+                              "flex cursor-default select-none items-center px-4 py-2",
+                              focus && "bg-sun/90 text-white"
+                            )
+                          }
+                        >
+                          {({ focus }) => (
+                            <>
+                              <FolderIcon
+                                className={classNames(
+                                  "h-6 w-6 flex-none",
+                                  focus ? "text-white" : "text-gray-400"
+                                )}
+                                aria-hidden="true"
+                              />
+                              <span className="ml-3 flex-auto truncate">
+                                {item.data.title}
+                              </span>
+                            </>
+                          )}
+                        </ComboboxOption>
+                      ))}
+                    </ul>
+                  </li>
+                </ComboboxOptions>
+              )}
+
+              {searchText === "?" && (
+                <div className="px-6 py-14 text-center text-sm sm:px-14">
+                  <LifebuoyIcon
+                    className="mx-auto h-6 w-6 text-gray-400"
+                    aria-hidden="true"
+                  />
+                  <p className="mt-4 font-semibold text-gray-900">
+                    ✨ 搜索说明书
+                  </p>
+                  <p className="mt-2 text-gray-500">
+                    您可以使用它来查找本站上的内容，如输入：高中语文
+                  </p>
+                </div>
+              )}
+
+              {searchText !== "?" && filteredData().length === 0 && (
+                <div className="px-6 py-14 text-center text-sm sm:px-14">
+                  <ExclamationTriangleIcon
+                    className="mx-auto h-6 w-6 text-gray-400"
+                    aria-hidden="true"
+                  />
+                  <p className="mt-4 font-semibold text-gray-900">
+                    没有找到您要搜索的内容哟
+                  </p>
+                  <p className="mt-2 text-gray-500">
+                    请您调整搜索内容重试一次吧
+                  </p>
+                </div>
+              )}
+
+              <div className="flex flex-wrap items-center bg-gray-50 px-4 py-2.5 text-xs text-gray-700">
+                请输入{" "}
+                <kbd
+                  className={classNames(
+                    "mx-1 flex h-5 w-5 items-center justify-center rounded border bg-white font-semibold sm:mx-2",
+                    searchText === "?"
+                      ? "border-indigo-600 text-indigo-600"
+                      : "border-gray-400 text-gray-900"
+                  )}
+                >
+                  ?
+                </kbd>{" "}
+                查看搜索指南.
+              </div>
+            </Combobox>
+          </DialogPanel>
         </div>
-        <div className="relative">
-          <Input
-            classNames={{
-              base: "max-w-full h-10 my-4",
-              mainWrapper: "h-full",
-              input: "text-lg bg-transparent outline-none border-none",
-              innerWrapper: "pl-2 bg-transparent",
-              inputWrapper:
-                "h-full font-normal text-default-500 bg-white hover:bg-white focus-within:!bg-white border border-gary-300 transition duration-500 ease-in-out transform-gpu hover:border-[#425aef] active:border-[#425aef] focus:outline-none focus:border-[#425aef]",
-            }}
-            placeholder="请输入关键词快速查找..."
-            size="sm"
-            value={searchText}
-            onChange={handleChange}
-            startContent={<SearchIcon size={18} />}
-            type="search"
-          />
-        </div>
-        <div className="h-fit overflow-y-auto">
-          {filteredData.map((item: Post) => (
-            <div
-              className="text-lg font-bold text-black my-3 hover:text-pink-500"
-              key={item.id}
-            >
-              <Link
-                href={`/blog/${item.slug}/`}
-                onClick={() => handleLinkClick("文章", item.data.title)}
-                showAnchorIcon
-              >
-                {item.data.title}
-              </Link>
-            </div>
-          ))}
-        </div>
-      </div>
+      </Dialog>
     </div>
   );
-};
-export default Search;
+}

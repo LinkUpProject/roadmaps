@@ -1,9 +1,13 @@
+{
+  /*搜索框置顶框架（因为不能在astro中使用hooks） */
+}
+
 import { useSnapshot } from "valtio";
 import { isSearchStore } from "../../store/isSearch";
 import { motion, AnimatePresence } from "framer-motion";
 import Search from "./Search";
 
-export default function SearchToTop() {
+const SearchToTop = () => {
   const isSearchSnapshot = useSnapshot(isSearchStore);
   return (
     <AnimatePresence>
@@ -12,7 +16,7 @@ export default function SearchToTop() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.1 }}
+          transition={{ duration: 0.2 }}
           className="fixed inset-0 z-50 flex justify-center h-screen pt-24 pb-10"
         >
           <Search />
@@ -20,4 +24,6 @@ export default function SearchToTop() {
       )}
     </AnimatePresence>
   );
-}
+};
+
+export default SearchToTop;

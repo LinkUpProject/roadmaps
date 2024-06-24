@@ -1,6 +1,7 @@
 {
   /*Github 卡片组件 */
 }
+
 {
   /*导入 第三方库 */
 }
@@ -19,7 +20,7 @@ import {
 import siteInfo from "../../../config/siteInfo";
 import githubCard from "../../../data/githubCard";
 
-export default function GithubCard() {
+const GithubCard: React.FC = () => {
   return (
     <Card className="max-w-[400px]">
       <CardHeader className="flex gap-3">
@@ -47,4 +48,6 @@ export default function GithubCard() {
       </CardFooter>
     </Card>
   );
-}
+};
+
+export default GithubCard;

@@ -1,7 +1,8 @@
 // 主题切换
+
 import { useState, useEffect } from "react";
 
-export const useTheme = () => {
+const useTheme = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
@@ -25,3 +26,5 @@ export const useTheme = () => {
 
   return { isDarkMode, toggleTheme };
 };
+
+export default useTheme;

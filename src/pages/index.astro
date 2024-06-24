@@ -1,7 +1,8 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import HomeSlogan from "../components/homeSlogan/HomeSlogan.astro";
-import KnowledgeShow from "../components/knowledgeShow/KnowledgeShow.astro";
+// import KnowledgeShow from "../components/knowledgeShow/KnowledgeShow.astro";
+import KnowledgeShow from "../components/knowledgeShow/KnowledgeShow";
 ---
 
 <BaseLayout
@@ -9,5 +10,5 @@ import KnowledgeShow from "../components/knowledgeShow/KnowledgeShow.astro";
   description={"Community driven roadmaps, articles and guides for developers to grow in their career."}
 >
   <HomeSlogan />
-  <KnowledgeShow />
+  <KnowledgeShow client:load />
 </BaseLayout>
