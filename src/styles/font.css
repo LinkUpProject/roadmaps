@@ -1,7 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @font-face {
   font-family: "LXGW Bright GB";
   src: local("LXGW Bright GB"),
@@ -2692,23 +2688,4 @@
   font-weight: 400;
   font-display: swap;
   unicode-range: U+400-45f, U+490-491, U+4b0-4b1, U+2116;
-}
-
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  user-select: none;
-}
-/* user-select: none; */
-body {
-  background-color: white;
-  font-family: "LXGW Bright GB";
-}
-a {
-  text-decoration: none;
-  color: inherit;
-}
-li {
-  list-style-type: none;
 }

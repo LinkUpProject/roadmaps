@@ -13,6 +13,9 @@ export default {
         'dark-pink':'#ec4899',
         'dark-white':'#e1e1e1',
       },
+      fontFamily: {
+        'lxgw-bright-gb': ['LXGW Bright GB', 'sans-serif'],
+      },
     },
   },
   plugins: [nextui()],
