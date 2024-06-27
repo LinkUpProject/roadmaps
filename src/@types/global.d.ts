@@ -25,10 +25,16 @@ interface Post {
   body: string;
   collection: string;
   data: {
-    id: string;
     title: string;
+    description: string;
+    image: string;
+    author: string;
+    tags: string[];
+    pubDate: Date;
+    updatedDate?: Date;
   };
 }
+
 // 404页面Link
 interface NotFoundLink {
   name: string;
