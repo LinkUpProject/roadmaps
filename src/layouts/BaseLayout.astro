@@ -11,26 +11,14 @@ import "../styles/global.css";
 import "../styles/font.css";
 // 搜索框组件
 import SearchToTop from "../components/search/SearchToTop";
-
-export interface Props {
-  title: string;
-  description?: string;
-}
-
-const {
-  // 站点信息
-  title = siteInfo.title,
-  description = siteInfo.description,
-  //知识点分类
-} = Astro.props;
 ---
 
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-    <meta name="description" content={description} />
+    <title>{siteInfo.title}</title>
+    <meta name="description" content={siteInfo.description} />
     <meta name="keywords" content={keywords} />
     <meta
       name="viewport"

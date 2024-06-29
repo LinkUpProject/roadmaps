@@ -1,31 +1,21 @@
-{
-  /*Header 组件 */
-}
+// Header 组件
 
-{
-  /*导入 React */
-}
+// 导入 React
 import React, { useState, useEffect } from "react";
-{
-  /*导入 第三方库 */
-}
+// 导入 第三方库
 import {
   Navbar,
   NavbarBrand,
   NavbarContent,
   NavbarMenuToggle,
 } from "@nextui-org/react";
-{
-  /*导入 组件 */
-}
+// 导入 组件
 import Logo from "../logo/Logo";
 import SearchInput from "../search/SearchButton";
 import MenuMobile from "../menu/menuMobile/MenuMobile";
 import MenuDesktop from "../menu/menuDesktop/MenuDesktop";
 // 暂未完成颜色适配：import ThemeToggle from "../themeToggle/ThemeToggle";
-{
-  /*导入 全局状态管理 */
-}
+// 导入 全局状态管理
 import { isPathActiveStore } from "../../store/isPathActive";
 import { isSearchStore } from "../../store/isSearch";
 

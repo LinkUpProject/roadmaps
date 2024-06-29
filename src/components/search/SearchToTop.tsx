@@ -1,10 +1,11 @@
-{
-  /*搜索框置顶框架（因为不能在astro中使用hooks） */
-}
+// 搜索框置顶框架（因为不能在astro中使用hooks）
 
+// 导入第三方库
+import { motion, AnimatePresence } from "framer-motion";
+// 导入 全局状态管理
 import { useSnapshot } from "valtio";
 import { isSearchStore } from "../../store/isSearch";
-import { motion, AnimatePresence } from "framer-motion";
+// 导入组件
 import Search from "./Search";
 
 const SearchToTop = () => {

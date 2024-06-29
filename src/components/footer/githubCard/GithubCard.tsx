@@ -1,10 +1,7 @@
-{
-  /*Github 卡片组件 */
-}
+// Github 卡片组件
 
-{
-  /*导入 第三方库 */
-}
+//导入 第三方库
+
 import {
   Card,
   CardHeader,
@@ -14,9 +11,7 @@ import {
   Link,
   Image,
 } from "@nextui-org/react";
-{
-  /*导入 数据 */
-}
+// 导入 数据
 import siteInfo from "../../../config/siteInfo";
 import githubCard from "../../../data/githubCard";
 

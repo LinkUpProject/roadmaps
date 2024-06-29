@@ -1,4 +1,5 @@
-// 切换主题状态
+// 切换网站主题状态（待完善逻辑）
+// TODO：根据用户系统主题自动切换主题（dark/light），优先级：1
 
 import { proxy } from "valtio";
 
@@ -8,7 +9,7 @@ interface ThemeStore {
   setTheme: () => void;
 }
 
-const themeStore = proxy<ThemeStore>({
+export const themeStore = proxy<ThemeStore>({
   isLight: true,
   theme: "light", // 默认值设置为 'light'
   setTheme: () => {
@@ -16,5 +17,3 @@ const themeStore = proxy<ThemeStore>({
     themeStore.theme = themeStore.isLight ? "light" : "dark";
   },
 });
-
-export default themeStore;

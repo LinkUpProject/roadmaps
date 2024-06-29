@@ -1,19 +1,11 @@
-{
-  /*手机模式下菜单组件 */
-}
+// 手机模式下菜单组件
 
-{
-  /*导入 第三方组件 */
-}
+// 导入 第三方组件
 import { NavbarMenu, NavbarMenuItem, Link } from "@nextui-org/react";
-{
-  /*导入 全局状态管理 */
-}
+// 导入 全局状态管理
 import { useSnapshot } from "valtio";
 import { isPathActiveStore } from "../../../store/isPathActive";
-{
-  /*导入 数据 */
-}
+// 导入 数据
 import menuItems from "../../../data/menuItems";
 
 const MenuMobile: React.FC = () => {
@@ -24,7 +16,7 @@ const MenuMobile: React.FC = () => {
         <NavbarMenuItem key={item.id}>
           <Link
             className={`w-full ${
-              isPathActiveSnapshot.isPathActive(item.link)
+              isPathActiveSnapshot.currentPath === item.link
                 ? "text-pink-500"
                 : "text-foreground"
             }`}

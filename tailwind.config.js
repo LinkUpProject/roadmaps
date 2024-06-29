@@ -16,12 +16,19 @@ export default {
       fontFamily: {
         'lxgw-bright-gb': ['LXGW Bright GB', 'sans-serif'],
       },
+      animation: {
+        // homeslogan
+        gradient: "gradient 8s linear infinite",
+      },
+      keyframes: {
+        // homeslogan
+        gradient: {
+          to: {
+            backgroundPosition: "var(--bg-size) 0",
+          },
+        },
+      },
     },
   },
   plugins: [nextui()],
-  darkMode: 'class',
-  daisyui: {
-    themes: ["light", "dark"],
-  },
 }
-

@@ -1,6 +1,4 @@
-{
-  /*搜索图标组件 */
-}
+// 搜索图标组件
 
 interface SearchIconProps {
   size?: number;
@@ -9,7 +7,7 @@ interface SearchIconProps {
   height?: number;
 }
 
-export const SearchIcon: React.FC<SearchIconProps> = ({
+const SearchIcon: React.FC<SearchIconProps> = ({
   size = 24,
   strokeWidth = 1.5,
   width,
@@ -42,3 +40,4 @@ export const SearchIcon: React.FC<SearchIconProps> = ({
     />
   </svg>
 );
+export default SearchIcon;

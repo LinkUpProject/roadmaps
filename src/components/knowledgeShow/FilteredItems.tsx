@@ -1,14 +1,8 @@
-{
-  /*筛选出的内容组件*/
-}
+// 筛选出的内容组件
 
-{
-  /*导入React */
-}
+// 导入React
 import React from "react";
-{
-  /*导入hooks */
-}
+// 导入hooks
 import useStatusText from "../../hooks/useStatusText";
 
 interface FilteredItemsProps {

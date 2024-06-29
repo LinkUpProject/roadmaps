@@ -1,14 +1,8 @@
-{
-  /*筛选出的内容组件*/
-}
+// 筛选出的内容组件
 
-{
-  /*导入hooks */
-}
+// 导入hooks
 import useFilterKnowledge from "../../hooks/filterKnowledeg";
-{
-  /*导入组件 */
-}
+// 导入组件
 import FilterForm from "./FilterForm";
 import FilteredItems from "./FilteredItems";
 

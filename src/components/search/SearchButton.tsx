@@ -1,17 +1,10 @@
-{
-  /*搜索框组件 */
-}
-{
-  /*导入 第三方组件 */
-}
+// 搜索框组件
+
+// 导入 第三方组件
 import { NavbarContent } from "@nextui-org/react";
-{
-  /*导入 搜索图标组件 */
-}
-import { SearchIcon } from "./SearchIcon";
-{
-  /*导入 全局状态 */
-}
+// 导入 搜索图标组件
+import SearchIcon from "./SearchIcon";
+// 导入 全局状态
 import { isSearchStore } from "../../store/isSearch";
 
 interface SearchInputProps {

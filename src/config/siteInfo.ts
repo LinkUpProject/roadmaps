@@ -1,5 +1,6 @@
 const siteInfo = {
   title: "知途",
+  site_description: "同思同享共创未来",
   siteUrl: "http://roadmap.forevers.love",
   logo: "https://avatars.githubusercontent.com/u/86160567?s=200&v=4",
   description:

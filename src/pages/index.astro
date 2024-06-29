@@ -1,14 +1,11 @@
 ---
+// 主页
 import BaseLayout from "../layouts/BaseLayout.astro";
 import HomeSlogan from "../components/homeSlogan/HomeSlogan.astro";
-// import KnowledgeShow from "../components/knowledgeShow/KnowledgeShow.astro";
 import KnowledgeShow from "../components/knowledgeShow/KnowledgeShow";
 ---
 
-<BaseLayout
-  title="Developer Roadmaps - roadmap.sh"
-  description={"Community driven roadmaps, articles and guides for developers to grow in their career."}
->
+<BaseLayout>
   <HomeSlogan />
   <KnowledgeShow client:load />
 </BaseLayout>

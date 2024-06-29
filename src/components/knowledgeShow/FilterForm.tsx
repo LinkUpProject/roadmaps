@@ -1,14 +1,8 @@
-{
-  /*筛选栏组件 */
-}
+// 筛选栏组件
 
-{
-  /*导入 React */
-}
+// 导入 React
 import React from "react";
-{
-  /*导入数据 */
-}
+// 导入数据
 import { knowledgeClassify } from "../../data/knowledgeClassify";
 
 interface FilterFormProps {

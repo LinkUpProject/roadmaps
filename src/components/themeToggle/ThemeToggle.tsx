@@ -1,15 +1,10 @@
-{
-  /*主题切换按钮组件 : 暂未完成黑暗颜色适配，不开放 */
-}
-{
-  /*导入React */
-}
+// 主题切换按钮组件 : 暂未完成黑暗颜色适配，不开放
+
+// 导入React
 import { useEffect } from "react";
-{
-  /*导入全局状态 */
-}
+// 导入全局状态
 import { useSnapshot } from "valtio";
-import themeStore from "../../store/theme";
+import { themeStore } from "../../store/theme";
 
 const ThemeToggle = () => {
   const { isLight, setTheme } = useSnapshot(themeStore);

@@ -1,6 +1,4 @@
-{
-  /*Logo 组件 */
-}
+// Logo 组件
 import siteInfo from "../../config/siteInfo";
 
 const Logo = () => {

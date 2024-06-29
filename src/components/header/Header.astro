@@ -2,11 +2,14 @@
 // Header 组件
 import HeaderComponent from "./HeaderComponent";
 import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+
 // 获取当前路径
 const currentPath = Astro.url.pathname;
 // 文章排序（最新 -> 最旧）
 const posts = (await getCollection("blog")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+  (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
+    b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 ---
 
