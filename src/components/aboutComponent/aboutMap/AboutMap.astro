@@ -1,0 +1,15 @@
+---
+// 个性化导航地图组件
+import { aboutMap } from "../../../data/about";
+---
+
+<div class="flex flex-col items-start">
+  <span class="text-4xl text-black font-bold">👉导航地图</span>
+  <span class="mt-24 text-xl md:text-3xl text-black tracking-wider mx-auto">
+    {aboutMap.title}
+  </span>
+  <span
+    class="mt-12 text-xl md:text-2xl text-black tracking-wider mx-auto"
+    set:html={aboutMap.content}
+  />
+</div>

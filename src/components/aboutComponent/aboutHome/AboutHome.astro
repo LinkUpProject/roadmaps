@@ -1,0 +1,32 @@
+---
+// 关于我主页组件
+
+// 导入数据
+import { aboutHome } from "../../../data/about";
+// 导入 组件
+import ValWords from "../../varWords/VarWords";
+import DownButton from "../downButton/DownButton.astro";
+const { author, about_one, var_words } = aboutHome;
+---
+
+<div class="w-full h-full flex flex-col items-center">
+  <span class="text-base md:text-xl lg:text-2xl text-black">{author}</span>
+  <div
+    class="mx-auto flex max-w-fit items-center justify-center rounded-2xl px-4 py-1.5 text-4xl font-medium duration-500 ease-out [--bg-size:300%]"
+  >
+    <span
+      class="mt-16 font-bold inline animate-gradient bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent text-4xl lg:text-7xl tracking-wider"
+    >
+      {about_one}
+    </span>
+  </div>
+  <div
+    class="mt-16 text-sm sm:text-xl md:text-2xl lg:text-3xl leading-relaxed text-center"
+  >
+    <span>我们</span>
+    <ValWords words={var_words} client:load />
+  </div>
+  <div class="mt-0">
+    <DownButton />
+  </div>
+</div>
