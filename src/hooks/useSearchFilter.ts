@@ -2,7 +2,7 @@
 import { useSnapshot } from "valtio";
 import { isSearchStore } from "../store/isSearch";
 
-const useSearch = () => {
+const useSearchFilter = () => {
   const { allContext, isSearch, searchText } = useSnapshot(isSearchStore);
 
   const filteredData = (): Post[] => {
@@ -22,4 +22,4 @@ const useSearch = () => {
     setSearchText: (text: string) => (isSearchStore.searchText = text),
   };
 };
-export default useSearch;
+export default useSearchFilter;

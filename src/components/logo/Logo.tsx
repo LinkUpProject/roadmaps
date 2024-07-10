@@ -2,8 +2,6 @@
 import siteInfo from "../../config/siteInfo";
 
 const Logo = () => {
-  return (
-    <p className="text-2xl text-black dark:text-white/90">{siteInfo.title}</p>
-  );
+  return <img src={siteInfo.logo} alt={siteInfo.title} className="w-16"/>;
 };
 export default Logo;

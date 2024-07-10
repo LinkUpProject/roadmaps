@@ -1,5 +1,6 @@
 // 关于页面数据
 
+
 // 主页数据
 export const aboutHome = {
   author: "学习路线图",
@@ -13,10 +14,9 @@ export const aboutHome = {
   ],
 };
 // 缘起页面数据
-export const aboutWelcome = {
-  welcome_one: "👋 哈喽哈喽，亲爱的小伙伴们！",
-  welcome_two:
-    "🌸欢迎登陆“知途”这个充满奇迹的学习星球！我们准备了一个超级全面、超级温馨的学习资源大宝库，专为每一个爱学习的你量身定制！📚💖这里有你想要探索的一切知识宝藏，从ABC的奇妙世界到宇宙万物的奥秘，全程免费，就等你来一场知识的大冒险啦！🚀",
+export const aboutGreet = {
+  greet_one: `👋哈喽哈喽，亲爱的小伙伴们！`,
+  greet_two: `🌸欢迎登陆“知途”这个充满奇迹的学习星球！我们准备了一个超级全面、超级温馨的学习资源大宝库，专为每一个爱学习的你量身定制！📚💖这里有你想要探索的一切知识宝藏，从ABC的奇妙世界到宇宙万物的奥秘，全程免费，就等你来一场知识的大冒险啦！🚀`,
 };
 // 知途特点介绍页面数据
 export const aboutIntroduce = [
@@ -80,8 +80,27 @@ export const aboutIntroduce = [
 export const aboutMap = {
   title: "新手村出发点 🏁",
   content: `
-    如果你是第一次到来，👉 点击“ <a href="/" class="text-pink-500">踏上知途之旅</a>”，让我们一起在知识的海洋中遨游，发现无限可能！🚀
+    如果你是第一次到来，👉 点击“ <a href="/" class="text-[#ff7c7c]">踏上知途之旅</a>”，让我们一起在知识的海洋中遨游，发现无限可能！🚀
   `,
+};
+// 致谢贡献者页面数据
+export const aboutContributors = {
+  description_one: `在这个充满爱的旅程中，我们特别感谢每一位贡献者，你们是知途星空中最亮的星星✨。<span class="text-[#ff7c7c]">从慷慨分享知识的作者，到默默优化代码的程序员，从热心解答疑惑的网友，到用心设计界面的艺术家，还有每一位信任并选择知途的用户</span>——你们共同织就了这张美丽的知识网，让学习变得不再孤单，而是充满乐趣和温暖。`,
+  contributors: [
+    {
+      name: "LingJueYa",
+      role: "编码小精灵 🧚‍♂️",
+      avatar:
+        "https://friend.s3-us-east-1.ossfiles.com/b_1f7895cd0c20cf1ea2f6903ffabafdf1.jpg",
+    },
+    {
+      name: "凝",
+      role: "绘梦师 🎨",
+      avatar: "https://friend.s3-us-east-1.ossfiles.com/5431719894482_.pic.avif",
+    },
+  ],
+  description_two: "亲爱的用户 —— 你，是这一切的源泉 💖🌍",
+  description_three: `最重要的是，感谢屏幕前的你。你的每一次点击、每一次学习、每一次反馈，都是推动知途不断前行的宝贵动力。<span class="text-[#ff7c7c]">你的笑容、你的进步、你的故事，是我们最大的成就。</span>`,
 };
 // Footer页面数据
 export const aboutFooter = {

@@ -6,10 +6,10 @@ import {
   ExclamationTriangleIcon,
 } from "@heroicons/react/24/outline";
 // 导入Hooks
-import { useSearch } from "../../hooks/useSearchFilter";
+import useSearchFilter from "../../hooks/useSearchFilter";
 
 const SearchHelp = () => {
-  const { searchText, filteredData } = useSearch();
+  const { searchText, filteredData } = useSearchFilter();
 
   if (searchText === "?") {
     return (

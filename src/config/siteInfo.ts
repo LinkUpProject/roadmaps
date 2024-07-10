@@ -2,7 +2,7 @@ const siteInfo = {
   title: "知途",
   site_description: "同思同享共创未来",
   siteUrl: "http://roadmap.forevers.love",
-  logo: "https://avatars.githubusercontent.com/u/86160567?s=200&v=4",
+  logo: "https://friend.s3-us-east-1.ossfiles.com/logo.avif",
   description:
     "您是否有过想 学习一个知识，却无从下手 的困惑？知途为您提供学习路线图，帮助您更好地学习。",
   github: "",

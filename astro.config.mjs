@@ -11,5 +11,5 @@ export default defineConfig({
       theme: 'dracula',
     },
   },
-	integrations: [react(),sitemap()],
+  integrations: [react(), sitemap()],
 });

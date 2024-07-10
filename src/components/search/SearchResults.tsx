@@ -2,13 +2,12 @@
 
 // 导入第三方库
 import { ComboboxOption, ComboboxOptions } from "@headlessui/react";
-import classNames from "classnames";
 import { FolderIcon } from "@heroicons/react/24/outline";
 // 导入Hooks
-import { useSearch } from "../../hooks/useSearchFilter";
+import useSearchFilter from "../../hooks/useSearchFilter";
 
 const SearchResults = () => {
-  const { filteredData } = useSearch();
+  const { filteredData } = useSearchFilter();
 
   return filteredData().length > 0 ? (
     <ComboboxOptions
@@ -24,19 +23,13 @@ const SearchResults = () => {
               key={item.id}
               value={item}
               className={({ focus }) =>
-                classNames(
-                  "flex cursor-default select-none items-center px-4 py-2",
-                  focus && "bg-[#ff7c7c] text-white"
-                )
-              }
+                `flex cursor-default select-none items-center px-4 py-2 ${focus && "bg-[#ff7c7c] text-white}"}`}
             >
               {({ focus }) => (
                 <>
                   <FolderIcon
-                    className={classNames(
-                      "h-6 w-6 flex-none",
-                      focus ? "text-white" : "text-gray-400"
-                    )}
+                    className={`h-6 w-6 flex-none
+                      ${focus ? "text-white" : "text-gray-400"}`}
                     aria-hidden="true"
                   />
                   <span className="ml-3 flex-auto truncate">
