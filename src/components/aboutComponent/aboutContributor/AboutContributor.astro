@@ -2,7 +2,7 @@
 // 致谢贡献者组件
 
 // 导入数据
-import { aboutContributors } from "../../data/about";
+import { aboutContributors } from "../../../data/aboutContributors";
 const { description_one, contributors, description_two, description_three } =
   aboutContributors;
 ---
@@ -13,6 +13,7 @@ const { description_one, contributors, description_two, description_three } =
     class="mt-12 text-xl md:text-2xl text-black tracking-wider mx-auto"
     set:html={description_one}
   />
+  <!-- 贡献者列表 -->
   <ul
     role="list"
     class="mx-auto mt-20 grid max-w-2xl grid-cols-2 gap-x-8 gap-y-16 text-center sm:grid-cols-3 md:grid-cols-4 lg:mx-0 lg:max-w-none lg:grid-cols-5 xl:grid-cols-6"
@@ -33,9 +34,12 @@ const { description_one, contributors, description_two, description_three } =
       ))
     }
   </ul>
-  <span class="mt-24 text-xl md:text-3xl text-black tracking-wider mx-auto">
-    {description_two}
-  </span>
+  <!-- 描述 1 -->
+  <span
+    class="mt-24 text-xl md:text-3xl text-black tracking-wider mx-auto"
+    set:html={description_two}
+  />
+  <!-- 描述 2 -->
   <span
     class="mt-12 text-xl md:text-2xl text-black tracking-wider mx-auto"
     set:html={description_three}

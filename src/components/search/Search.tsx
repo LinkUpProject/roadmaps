@@ -8,15 +8,14 @@ import {
   DialogBackdrop,
 } from "@headlessui/react";
 // 导入Hooks
-import useSearchFilter from "../../hooks/useSearchFilter";
+import useSearch from "../../hooks/useSearchFilter";
 // 导入组件
 import SearchInput from "./SearchInput";
 import SearchResults from "./SearchResults";
 import SearchHelp from "./SearchHelp";
 
 export default function Search() {
-  const { isSearch, setIsSearch, setSearchText, searchText } =
-    useSearchFilter();
+  const { isSearch, setIsSearch, setSearchText, searchText } = useSearch();
 
   return (
     <div className="fixed inset-0 flex justify-center w-screen h-screen pt-24 pb-10 bg-white/60 backdrop-blur-sm">

@@ -1,13 +1,17 @@
 ---
 // 个性化导航地图组件
-import { aboutMap } from "../../../data/about";
+
+// 导入数据
+import { aboutMap } from "../../../data/aboutMap";
 ---
 
 <div class="flex flex-col items-start">
   <span class="text-4xl text-black font-bold">👉导航地图</span>
+  <!-- 标题 -->
   <span class="mt-24 text-xl md:text-3xl text-black tracking-wider mx-auto">
     {aboutMap.title}
   </span>
+  <!-- 内容部分 -->
   <span
     class="mt-12 text-xl md:text-2xl text-black tracking-wider mx-auto"
     set:html={aboutMap.content}

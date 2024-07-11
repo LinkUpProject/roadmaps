@@ -1,0 +1,60 @@
+---
+// 关于我们 缘起组件
+
+// 导入数据
+import { aboutWelcome } from "../../../data/aboutWelcome";
+const {
+  welcome_one,
+  welcome_two,
+  welcome_three,
+  welcome_four,
+  welcome_five,
+  welcome_six,
+  welcome_seven,
+  welcome_eight,
+} = aboutWelcome;
+---
+
+<div class="flex flex-col items-start">
+  <span class="text-4xl lg:text-5xl text-black font-bold">✨ 缘起</span>
+  <!-- 内容 1 -->
+  <span
+    class="mt-24 mx-auto text-xl md:text-2xl lg:text-3xl text-black tracking-widest"
+    set:html={welcome_one}
+  />
+  <!-- 内容 2 -->
+  <span
+    class="mt-8 mx-auto text-xl md:text-2xl text-center text-black tracking-widest"
+    set:html={welcome_two}
+  />
+  <!-- 内容 3 -->
+  <span
+    class="mt-8 mx-auto text-xl md:text-2xl text-center text-black tracking-widest"
+    set:html={welcome_three}
+  />
+  <!-- 内容 4 -->
+  <span
+    class="mt-8 mx-auto text-xl md:text-2xl text-center text-black tracking-widest"
+    set:html={welcome_four}
+  />
+  <!-- 内容 5 -->
+  <span
+    class="mt-8 mx-auto text-xl md:text-2xl text-center text-black tracking-widest"
+    set:html={welcome_five}
+  />
+  <!-- 内容 6 -->
+  <span
+    class="mt-8 mx-auto text-xl md:text-2xl text-center text-black tracking-widest"
+    set:html={welcome_six}
+  />
+  <!-- 内容 7 -->
+  <span
+    class="mt-8 mx-auto text-xl md:text-2xl text-center text-black tracking-widest"
+    set:html={welcome_seven}
+  />
+  <!-- 内容 8 -->
+  <span
+    class="mt-8 mx-auto text-xl md:text-2xl text-center text-black tracking-widest"
+    set:html={welcome_eight}
+  />
+</div>

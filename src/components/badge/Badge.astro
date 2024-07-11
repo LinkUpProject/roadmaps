@@ -1,0 +1,55 @@
+---
+// Badge 组件
+const { sort } = Astro.props;
+
+// 类型定义
+interface ColorMapItem {
+  bg: string;
+  text: string;
+  ring: string;
+  content: string;
+}
+
+interface ColorMap {
+  [key: string]: ColorMapItem;
+  default: ColorMapItem;
+}
+// 数据定义
+const colorMap: ColorMap = {
+  "1": {
+    bg: "bg-green-50",
+    text: "text-green-700",
+    ring: "ring-green-600/20",
+    content: "新增 🎉",
+  },
+  "2": {
+    bg: "bg-pink-50",
+    text: "text-pink-700",
+    ring: "ring-pink-700/10",
+    content: "优化 🚀",
+  },
+  "3": {
+    bg: "bg-yellow-50",
+    text: "text-yellow-800",
+    ring: "ring-yellow-600/20",
+    content: "修复 🔧",
+  },
+  default: {
+    bg: "bg-gray-50",
+    text: "text-gray-700",
+    ring: "ring-gray-500/10",
+    content: "未知",
+  },
+};
+
+const {
+  bg = colorMap.default.bg,
+  text = colorMap.default.text,
+  ring = colorMap.default.ring,
+  content = colorMap.default.content,
+} = colorMap[sort] || {};
+// 定义样式
+const classes = `inline-flex items-center rounded-md px-2 py-1 text-xs font-medium ring-1 ring-inset ${bg} ${text} ${ring}`;
+---
+
+<span class={classes}>{content}</span>

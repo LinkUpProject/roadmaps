@@ -1,0 +1,19 @@
+---
+const { category, subcategories } = Astro.props;
+---
+
+{
+  subcategories ? (
+    <ul>
+      {subcategories.map((subcategory: any) => (
+        <li>
+          <a href={`/${category}/${subcategory.name}`}>
+            {subcategory.displayName}
+          </a>
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <p>No subcategories found.</p>
+  )
+}

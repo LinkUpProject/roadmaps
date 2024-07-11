@@ -2,23 +2,24 @@
 // Footer组件
 
 // 导入数据
-import { aboutFooter } from "../../../data/about";
+import { aboutFooter } from "../../../data/aboutFooter";
 const { footer_one, footer_two, footer_three } = aboutFooter;
 ---
 
 <div class="flex flex-col items-start">
+  <!-- Footer 1 -->
   <span
     class="mt-12 text-xl md:text-3xl text-center text-black tracking-wider mx-auto"
     >{footer_one}</span
   >
-
+  <!-- Footer 2 -->
   <span
     class="mt-12 text-xl md:text-2xl text-center text-black tracking-wider mx-auto"
-    >{footer_two}</span
-  >
-
+    set:html={footer_two}
+  />
+  <!-- Footer 3 -->
   <span
     class="mt-12 text-xl md:text-2xl text-center text-black tracking-wider mx-auto"
-    >{footer_three}</span
-  >
+    set:html={footer_three}
+  />
 </div>

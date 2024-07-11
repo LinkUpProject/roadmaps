@@ -1,0 +1,29 @@
+---
+// Navbar 组件
+
+// 导入数据
+import { navItems } from "../../data/navbar";
+// 导入 搜索组件
+import SearchButton from "../search/SearchButton";
+
+// 获取当前路径，并去掉末尾的斜杠（如果有）
+// 注意有坑：生产环境为/xxx/
+const currentPath =
+  Astro.url.pathname === "/" ? "/" : Astro.url.pathname.replace(/\/$/, "");
+---
+
+<div
+  class="fixed top-6 inset-x-0 flex justify-center items-center gap-8 w-fit mx-auto pl-8 pr-1 rounded-3xl bg-white/70 backdrop-blur-lg backdrop-saturate-150 border border-gray-100 shadow-sm z-50"
+>
+  {
+    navItems.map((item) => (
+      <a
+        href={item.link}
+        class={`block py-2 text-center text-black relative ${currentPath === item.link ? "border-gradient text-pink-500 drop-shadow-[0_0_16px_rgba(236,72,153,1)]" : ""}`}
+      >
+        {item.name}
+      </a>
+    ))
+  }
+  <SearchButton client:load />
+</div>

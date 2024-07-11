@@ -1,10 +1,12 @@
 // 按钮框架组件
-import type { CSSProperties, ReactNode } from "react";
 
+// 导入类型定义
+import type { CSSProperties, ReactNode } from "react";
+// 定义按钮组件的 props 类型
 interface AnimatedShinyTextProps {
-  children: ReactNode;
-  className?: string;
-  shimmerWidth?: number;
+  children: ReactNode; // 按钮内的文字
+  className?: string; // 扩展样式
+  shimmerWidth?: number; // 闪光宽度
 }
 
 const Button: React.FC<AnimatedShinyTextProps> = ({

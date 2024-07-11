@@ -1,0 +1,30 @@
+---
+import { getCategories, getRoadmapItem } from "../../../../utils/data";
+import ContentDisplay from "../../../../components/contentDisplay/ContentDisplay.astro";
+
+export async function getStaticPaths() {
+  const categories = await getCategories();
+  const paths: any = [];
+
+  categories.forEach((category) => {
+    category.subcategories.forEach((subcategory) => {
+      subcategory.roadmap.forEach((item) => {
+        paths.push({
+          params: {
+            category: category.name,
+            subcategory: subcategory.name,
+            roadmap: item.name,
+          },
+        });
+      });
+    });
+  });
+
+  return paths;
+}
+
+const { category, subcategory, roadmap } = Astro.params;
+const roadmapItem = await getRoadmapItem(category, subcategory, roadmap);
+---
+
+<ContentDisplay content={roadmapItem.content} />

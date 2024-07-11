@@ -1,11 +1,33 @@
 ---
-// 主页
+// 主页（介绍页面）
+
 import BaseLayout from "../layouts/BaseLayout.astro";
-import HomeSlogan from "../components/homeSlogan/HomeSlogan.astro";
-import KnowledgeShow from "../components/knowledgeShow/KnowledgeShow";
+import AboutHome from "../components/aboutComponent/aboutHome/AboutHome.astro";
+import AboutWelcome from "../components/aboutComponent/aboutWelcome/AboutWelcome.astro";
+import AboutIntroduce from "../components/aboutComponent/aboutIntroduce/AboutIntroduce.astro";
+import AboutMap from "../components/aboutComponent/aboutMap/AboutMap.astro";
+import AboutContributor from "../components/aboutComponent/aboutContributor/AboutContributor.astro";
+import AboutFooter from "../components/aboutComponent/aboutFooter/AboutFooter.astro";
 ---
 
 <BaseLayout>
-  <HomeSlogan />
-  <KnowledgeShow client:load />
+  <div class="w-screen pt-32">
+    <AboutHome />
+  </div>
+
+  <div class="flex flex-col items-center">
+    <div class="px-6 max-w-[900px]">
+      <div class="mt-32">
+        <AboutWelcome />
+      </div>
+      <div class="mt-32">
+        <AboutIntroduce />
+      </div>
+      <div class="mt-32"><AboutMap /></div>
+      <div class="mt-32">
+        <AboutContributor />
+      </div>
+      <div class="my-32"><AboutFooter /></div>
+    </div>
+  </div>
 </BaseLayout>

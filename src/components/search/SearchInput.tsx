@@ -4,10 +4,10 @@
 import { ComboboxInput } from "@headlessui/react";
 import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 // 导入Hooks
-import useSearchFilter from "../../hooks/useSearchFilter";
+import useSearch from "../../hooks/useSearchFilter";
 
 const SearchInput = () => {
-  const { setSearchText } = useSearchFilter();
+  const { setSearchText } = useSearch();
 
   return (
     <div className="relative">

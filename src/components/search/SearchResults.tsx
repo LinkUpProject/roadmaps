@@ -4,10 +4,10 @@
 import { ComboboxOption, ComboboxOptions } from "@headlessui/react";
 import { FolderIcon } from "@heroicons/react/24/outline";
 // 导入Hooks
-import useSearchFilter from "../../hooks/useSearchFilter";
+import useSearch from "../../hooks/useSearchFilter";
 
 const SearchResults = () => {
-  const { filteredData } = useSearchFilter();
+  const { filteredData } = useSearch();
 
   return filteredData().length > 0 ? (
     <ComboboxOptions
@@ -23,12 +23,14 @@ const SearchResults = () => {
               key={item.id}
               value={item}
               className={({ focus }) =>
-                `flex cursor-default select-none items-center px-4 py-2 ${focus && "bg-[#ff7c7c] text-white}"}`}
+                `flex cursor-default select-none items-center px-4 py-2 
+                  ${focus && "bg-[#ff7c7c] text-white"} `
+              }
             >
               {({ focus }) => (
                 <>
                   <FolderIcon
-                    className={`h-6 w-6 flex-none
+                    className={`h-6 w-6 flex-none 
                       ${focus ? "text-white" : "text-gray-400"}`}
                     aria-hidden="true"
                   />

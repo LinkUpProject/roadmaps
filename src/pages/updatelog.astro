@@ -1,0 +1,52 @@
+---
+// 更新日志页面
+import BaseLayout from "../layouts/BaseLayout.astro";
+// 导入组件
+import Logo from "../components/logo/Logo";
+import Badge from "../components/badge/Badge.astro";
+// 导入数据
+import { updateLog } from "../data/updateLog";
+import siteInfo from "../config/siteInfo";
+---
+
+<BaseLayout>
+  <div class="w-screen h-hit">
+    <div
+      class="w-full py-32 px-4 md:px-10 bg-[url('../assets/img/updateLogBg.avif')] bg-no-repeat bg-cover bg-center bg-fixed"
+    >
+      <div class="max-w-[600px] mx-auto bg-white rounded-[32px]">
+        <div class="flex justify-center items-center gap-8 pt-12 mx-auto">
+          <div class="w-20">
+            <Logo client:load />
+          </div>
+          <span
+            class="font-bold inline bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-clip-text text-transparent text-4xl tracking-wider"
+            >知途更新日志</span
+          >
+        </div>
+        <!-- 版本号 -->
+        <div class="flex justify-center items-center w-full mt-2">
+          <span
+            class="px-2 py-1 text-pink-700 bg-pink-50 text-md ring-pink-700/10 rounded-md font-medium ring-1 ring-inset"
+            >{siteInfo.versions}</span
+          >
+        </div>
+
+        <!-- 更新日志 -->
+        <div class="max-w-[500px] mx-auto pb-20">
+          {
+            updateLog.map((item) => (
+              <div class="flex flex-col mt-20">
+                <span class="text-xl text-black font-medium">{item.time}</span>
+                <div class="flex mt-2 ml-4">
+                  <Badge content={item.content} sort={item.sort} />
+                  <span class="ml-6 text-black text-xl">{item.content}</span>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

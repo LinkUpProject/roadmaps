@@ -1,0 +1,17 @@
+---
+const { categories } = Astro.props;
+---
+
+{
+  categories ? (
+    <ul>
+      {categories.map((category: any) => (
+        <li>
+          <a href={`/${category.name}`}>{category.displayName}</a>
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <p>Loading categories...</p>
+  )
+}

@@ -1,16 +1,18 @@
 ---
-// 基础框架
-import Header from "../components/header/Header.astro";
-import Footer from "../components/footer/Footer.astro";
 // 站点信息
 import siteInfo from "../config/siteInfo";
-// 知识点分类
-import { keywords } from "../data/knowledgeClassify";
 // 全局样式
 import "../styles/global.css";
 import "../styles/font.css";
+// 导入工具函数｜获取文章数据
+import { getPosts } from "../utils/getPosts";
+const posts = await getPosts();
+// 导入 Navbar
+import Navbar from "../components/navbar/Navbar.astro";
+// 导入 Footer
+import Footer from "../components/footer/Footer.astro";
 // 搜索框组件
-import SearchToTop from "../components/search/SearchToTop";
+import ComponentToTop from "../components/componentToTop/ComponentToTop";
 ---
 
 <html lang="en">
@@ -19,18 +21,17 @@ import SearchToTop from "../components/search/SearchToTop";
     <meta name="generator" content={Astro.generator} />
     <title>{siteInfo.title}</title>
     <meta name="description" content={siteInfo.description} />
-    <link rel="icon" href={siteInfo.logo} />
-    <meta name="keywords" content={keywords} />
+    <link rel="icon" href="../assets/img/logo.avif" />
     <meta
       name="viewport"
       content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0"
     />
     <meta http-equiv="Content-Language" content="en" />
   </head>
-  <body class="flex min-h-screen flex-col">
-    <Header />
+  <body class="relative flex min-h-screen flex-col">
+    <Navbar />
     <slot />
     <Footer />
-    <SearchToTop client:load />
+    <ComponentToTop posts={posts} client:load />
   </body>
 </html>

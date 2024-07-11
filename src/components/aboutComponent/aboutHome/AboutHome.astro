@@ -1,29 +1,39 @@
 ---
 // 关于知途主页组件
 
-// 导入数据
-import { aboutHome } from "../../../data/about";
 // 导入 组件
 import ValWords from "../../varWords/VarWords";
 import DownButton from "../downButton/DownButton.astro";
-const { author, about_one, var_words } = aboutHome;
+// 导入数据
+import { aboutHome } from "../../../data/aboutHome";
+const { author, about_one, var_title, var_words } = aboutHome;
 ---
 
-<div class="w-full h-full flex flex-col items-center">
-  <span class="text-base md:text-xl lg:text-2xl text-black">{author}</span>
+<div class="flex flex-col items-center w-full h-full">
+  <!-- 名称栏 -->
+  <span
+    class="inline-flex items-center gap-x-2 rounded-full bg-green-100 px-4 py-1 text-base md:text-xl lg:text-2xl font-medium text-green-700"
+  >
+    <svg viewBox="0 0 6 6" aria-hidden="true" class="h-2 w-2 fill-green-500">
+      <circle r={3} cx={3} cy={3}></circle>
+    </svg>
+    {author}
+  </span>
+  <!-- 大标题栏 -->
   <div
-    class="mx-auto flex max-w-fit items-center justify-center rounded-2xl px-4 py-1.5 text-4xl font-medium duration-500 ease-out [--bg-size:300%]"
+    class="mx-auto flex justify-center items-center max-w-fit px-4 py-1.5 font-medium duration-500 ease-out [--bg-size:300%]"
   >
     <span
-      class="mt-16 font-bold inline animate-gradient bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent text-4xl lg:text-7xl tracking-wider"
+      class="mt-24 text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold inline animate-gradient bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent tracking-wider"
     >
       {about_one}
     </span>
   </div>
+  <!-- 介绍栏 -->
   <div
-    class="mt-16 text-sm sm:text-xl md:text-2xl lg:text-3xl leading-relaxed text-center"
+    class="mt-24 text-xl sm:text-xl md:text-2xl lg:text-3xl leading-relaxed text-center"
   >
-    <span>我们</span>
+    <span>{var_title}</span>
     <ValWords words={var_words} client:load />
   </div>
   <div class="mt-0">

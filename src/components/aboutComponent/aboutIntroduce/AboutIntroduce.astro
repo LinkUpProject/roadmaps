@@ -1,9 +1,12 @@
 ---
 // 知途特色组件
-import { aboutIntroduce } from "../../../data/about";
+
+// 导入数据
+import { aboutIntroduce } from "../../../data/aboutIntroduce";
 ---
 
 <div class="flex flex-col items-start">
+  <!-- 特色介绍列表 -->
   <span class="text-4xl text-black font-bold">🌈知途星球特色</span>
   {
     aboutIntroduce.map((section) => (
@@ -12,7 +15,8 @@ import { aboutIntroduce } from "../../../data/about";
           {section.title}
         </span>
         <span
-          class="mt-12 text-xl md:text-2xl text-black tracking-wider mx-auto"
+          class="mt-12 text-xl md:text-2xl text-black tracking-wider
+         mx-auto"
           set:html={section.content}
         />
       </Fragment>

@@ -1,0 +1,11 @@
+---
+// 路线图页面
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HomeSlogan from "../components/homeSlogan/HomeSlogan.astro";
+import KnowledgeShow from "../components/knowledgeShow/KnowledgeShow";
+---
+
+<BaseLayout>
+  <HomeSlogan />
+  <KnowledgeShow client:load />
+</BaseLayout>
