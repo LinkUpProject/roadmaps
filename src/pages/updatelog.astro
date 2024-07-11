@@ -2,7 +2,6 @@
 // 更新日志页面
 import BaseLayout from "../layouts/BaseLayout.astro";
 // 导入组件
-import Logo from "../components/logo/Logo";
 import Badge from "../components/badge/Badge.astro";
 // 导入数据
 import { updateLog } from "../data/updateLog";
@@ -17,7 +16,7 @@ import siteInfo from "../config/siteInfo";
       <div class="max-w-[600px] mx-auto bg-white rounded-[32px]">
         <div class="flex justify-center items-center gap-8 pt-12 mx-auto">
           <div class="w-20">
-            <Logo client:load />
+            <img src={siteInfo.logo} alt="知途" />
           </div>
           <span
             class="font-bold inline bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-clip-text text-transparent text-4xl tracking-wider"

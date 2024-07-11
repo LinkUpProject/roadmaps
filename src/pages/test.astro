@@ -1,9 +1,0 @@
----
-// src/pages/index.astro
-import { getCategories } from "../utils/data";
-import CategoryList from "../components/categoryList/CategoryList.astro";
-
-const categories = await getCategories();
----
-
-<CategoryList categories={categories} />
